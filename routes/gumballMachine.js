@@ -10,7 +10,7 @@ var db = null, gumball = null;
 //				 "databaseName" : "CloudFoundry_b3lh89gr_n48d811u"};
 
 
-var dbDetails = {"host" : "akshayjarandikar@gmail.com:akshay12@ds061200.mongolab.com",
+var dbDetails = {"host" : "akshayj:akshay12@ds043220.mongolab.com",
 		 "port" : 43220,
 		 "databaseName" : "ajdatabase"};
 
@@ -45,10 +45,13 @@ exports.show = function(req, res) {
 	console.log("inside show");
 	getGumball(function(gumball) {
 		var data = null;
+		console.log("inside1");
 		if (gumball) {
+			console.log("inside If");
 			data = createSuccessMessage("NoCoinState", gumball.model_number,
 					gumball.serial_number, "Gumball Machine Started");
 		} else {
+			console.log("inside Else");
 			data = createFailureMessage("Gumball machine not available");
 		}
 		res.send(data);
